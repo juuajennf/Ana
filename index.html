@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te Amo Ana Sofía - My Love</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffcccc;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            position: absolute;
+            top: 20px;
+            color: #ff3366;
+        }
+
+        #heart {
+            width: 100px;
+            height: 90px;
+            background-color: red;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            transform-origin: center;
+        }
+
+        #heart::before, #heart::after {
+            content: "";
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background-color: red;
+        }
+
+        #heart::before {
+            top: -45px;
+            left: 0;
+        }
+
+        #heart::after {
+            left: 45px;
+            top: 0;
+        }
+
+        #message {
+            display: none;
+            font-size: 30px;
+            color: #ff3366;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Te Amo Ana Sofía - My Love</h1>
+
+    <div id="heart"></div>
+    <div id="message">¡Te amo, Ana Sofía!</div>
+
+    <script>
+        const heart = document.getElementById("heart");
+        const message = document.getElementById("message");
+        let size = 1;
+        let rotation = 0;
+
+        heart.addEventListener("click", () => {
+            if (size < 8) {
+                size += 0.5;
+                rotation += 45; // Añadimos rotación de 45 grados en cada clic
+                heart.style.transform = `scale(${size}) rotate(${rotation}deg)`;
+            } else {
+                heart.style.display = "none";
+                message.style.display = "block";
+            }
+        });
+    </script>
+    
+</body>
+</html>
